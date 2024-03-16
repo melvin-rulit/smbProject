@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import {UserService} from "../../services/UserService";
+import {SubAccounts} from "../../services/SubAccounts";
 
 
 export default {
@@ -38,19 +38,19 @@ export default {
         }
     },
     created() {
-        UserService.getById(this.id)
+        SubAccounts.getById(this.id)
             .then(response => this.user = response.data.user)
             .catch(error => {
                 this.errors = error.response.data.message
             })
-        UserService.getRoles().then(response => this.userRoles = response.data.roles)
+        SubAccounts.getRoles().then(response => this.userRoles = response.data.roles)
 
     },
     methods: {
         update: async function (event) {
             event.preventDefault()
             this.errors = null
-            UserService.update(this.user)
+            SubAccounts.update(this.user)
                 .then(response => {
                     this.user = response.data.user
                     this.message = 'Изменения сохранены'

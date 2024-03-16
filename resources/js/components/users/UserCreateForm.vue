@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import {UserService} from "../../services/UserService";
+import {SubAccounts} from "../../services/SubAccounts";
 
 
 export default {
@@ -36,13 +36,13 @@ export default {
         }
     },
     created: async function () {
-        UserService.getRoles().then(response => this.userRoles = response.data.roles)
+        SubAccounts.getRoles().then(response => this.userRoles = response.data.roles)
     },
     methods: {
         store: async function (event) {
             event.preventDefault()
             this.errors = null
-            UserService.store(this.user)
+            SubAccounts.store(this.user)
                 .then(response => {
                     this.user = response.data.user
                     this.$router.push({name: 'listUsers'})

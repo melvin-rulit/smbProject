@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 
 use App\Models\UserSubAccount;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller as BaseController;
 
 class UserSubAccountsListController extends Controller
 {
-    public function list()
+    public function getAllSubAccounts(): JsonResponse
     {
         $list = UserSubAccount::where('user_id', auth()->id())->get();
 
@@ -27,6 +28,12 @@ class UserSubAccountsListController extends Controller
             'items' => $items,
         ];
 
-        return response()->json($json);
+
+        return new JsonResponse(
+            [
+                'sub_accounts' => $json,
+            ]
+        );
+//        return response()->json($json);
     }
 }

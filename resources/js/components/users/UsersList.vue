@@ -4,20 +4,13 @@
 </template>
 
 <script>
-import {UserService} from "../../services/UserService";
-import _ from "lodash"
-
+import {SubAccounts} from "../../services/SubAccounts";
 
 export default {
     components: {},
     data: function () {
         return {
-            users: [],
-            loading: false,
-            errorMessage: null,
-            query: '',
-            limit: 5,
-            total: 1
+            sub_accounts: [],
         }
     },
     name: "UsersList",
@@ -26,15 +19,7 @@ export default {
     },
     methods: {
         update:  function () {
-            this.loading = true
-            UserService.getUsers(this.page, this.query)
-                .then(response => {
-                this.users = response.data.users
-                this.limit = response.data.limit
-                this.total = response.data.total
-            })
-                .catch(error => this.errors = error.data.message || error)
-                .finally(() => this.loading = false)
+            SubAccounts.getSubAccounts().then(response => {this.sub_accounts = response.data.sub_accounts })
         },
 
     },

@@ -20,16 +20,16 @@ class BranchController extends Controller
         return new JsonResponse(['branches' => BranchResource::collection($branches)]);
     }
 
-    public function show($id): JsonResponse
-    {
-        $branch = $this->branches->find($id);
-
-        if (!$branch) {
-            return $this->error('Филиал не найден');
-        }
-
-        return new JsonResponse(['branch' => BranchResource::make($branch)]);
-    }
+//    public function show($id): JsonResponse
+//    {
+//        $branch = $this->branches->find($id);
+//
+//        if (!$branch) {
+//            return $this->error('Филиал не найден');
+//        }
+//
+//        return new JsonResponse(['branch' => BranchResource::make($branch)]);
+//    }
 
     public function store(CreateBranchRequest $request): JsonResponse
     {
@@ -41,34 +41,34 @@ class BranchController extends Controller
         return new JsonResponse(['branch' => BranchResource::make($branch)]);
     }
 
-    public function update(UpdateBranchRequest $request, int $id): JsonResponse
-    {
+//    public function update(UpdateBranchRequest $request, int $id): JsonResponse
+//    {
+//
+//        $branch = $this->branches->find($id);
+//
+//        if (!$branch) {
+//            return $this->error('Филиал не найден');
+//        }
+//
+//        $branch->name = $request->getName();
+//        $branch->address = $request->getAddress();
+//        $branch->save();
+//
+//        return new JsonResponse(['branch' => BranchResource::make($branch)]);
+//    }
 
-        $branch = $this->branches->find($id);
-
-        if (!$branch) {
-            return $this->error('Филиал не найден');
-        }
-
-        $branch->name = $request->getName();
-        $branch->address = $request->getAddress();
-        $branch->save();
-
-        return new JsonResponse(['branch' => BranchResource::make($branch)]);
-    }
-
-    public function delete(int $id): JsonResponse
-    {
-        $branch = $this->branches->find($id);
-
-        if (!$branch) {
-            return $this->error('Филиал не найден');
-        }
-
-        $branch->delete();
-
-        return $this->success();
-    }
+//    public function delete(int $id): JsonResponse
+//    {
+//        $branch = $this->branches->find($id);
+//
+//        if (!$branch) {
+//            return $this->error('Филиал не найден');
+//        }
+//
+//        $branch->delete();
+//
+//        return $this->success();
+//    }
 
 
 }

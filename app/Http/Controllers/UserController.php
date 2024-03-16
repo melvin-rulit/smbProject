@@ -49,9 +49,9 @@ const PER_PAGE = 20;
     {
         $user = $this->users->find($id);
 
-        if (!$user) {
-            return $this->error('Филиал не найден');
-        }
+//        if (!$user) {
+//            return $this->error('Филиал не найден');
+//        }
 
         return new JsonResponse(['user' => UserResource::make($user)]);
     }
