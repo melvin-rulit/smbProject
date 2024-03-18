@@ -7,4 +7,8 @@ export class SubAccounts {
         let url = `${this.serverUrl}/trade`;
         return axios.get(url);
     }
+    static getExchanges() {
+        let url = `${this.serverUrl}/trade/exchange`;
+        return axios.get(url);
+    }
 }

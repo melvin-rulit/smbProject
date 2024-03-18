@@ -6,7 +6,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <meta name="description" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <link href="{{ asset('css/admin.bundle.css') }}" rel="stylesheet">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 <body class="bg-gray-50 dark:bg-gray-800" id="app">

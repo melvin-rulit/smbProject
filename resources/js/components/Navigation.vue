@@ -1,5 +1,5 @@
 <template>
-    <div class="flex pt-12 overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div class="flex pt-12 overflow-hidden" style="background-color: #eef0f8;">
         <aside id="sidebar" class="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 hidden w-64 h-full pt-12 font-normal duration-75 lg:flex transition-width" aria-label="Sidebar">
             <div class="relative flex flex-col flex-1 min-h-0 pt-0 bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
@@ -78,7 +78,7 @@
         <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
 <!--        <div id="main-content" class=" w-full h-full ">-->
             <Body/>
-<!--            <Footer/>-->
+
         </div>
 
     </div>
@@ -86,10 +86,9 @@
 
 <script>
 import Body from "./Body.vue";
-import Footer from "./Footer.vue";
 
 export default {
-    components: {Body,Footer},
+    components: {Body},
     name: "Navigation",
 
     data: function () {
